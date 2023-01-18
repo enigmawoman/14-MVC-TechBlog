@@ -30,13 +30,16 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [
-        User,
-        { 
-          model: Comment,
-        include: [User], 
-        }, 
-      ],
+       include: [
+         { model: Comment,
+         include: { 
+           model: User,
+           attributes: ['name'], 
+         }, 
+       },
+       { model: User,
+       attributes: { exclude: ['password']}}
+       ],
     });
 
     const post = postData.get({ plain: true });
@@ -45,6 +48,34 @@ router.get('/post/:id', async (req, res) => {
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/post/:id/edit', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+       include: [
+      //    { model: Comment,
+      //    include: { 
+      //      model: User,
+      //      attributes: ['name'], 
+      //    }, 
+      //  },
+       { model: User,
+       attributes: { exclude: ['password']}}
+       ],
+    });
+
+    const post = postData.get({ plain: true });
+    console.log(post);
+
+    res.render('edit-post', {
+      ...post,
+      logged_in: req.session.logged_in,
+      isOwner: req.session.user_id === post.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
