@@ -22,7 +22,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
 
     const updateData = {
@@ -69,22 +69,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-// new comment
-
-// router.post('/', withAuth, async (req, res) => {
-//   try {
-//     const newComment = await Comment.create({
-//       ...req.body,
-//       post_id: req.session.comment_id,
-//     });
-
-//     res.status(200).json(newComment);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 
 
