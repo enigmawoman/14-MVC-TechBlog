@@ -1,0 +1,19 @@
+{{#if isOwner}} 
+<div>
+    <form class="form update-project-form">
+    <div class="form-group">
+        <label for="project-desc">comment:</label>
+        <textarea class="form-input" id="comment-desc-update" name="comment-desc-update">{{user_comment}}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-sm btn-danger update-comment" data-id="{{id}}">UPDATE</button>
+        <button class="btn btn-sm btn-danger delete-comment" data-id="{{id}}">DELETE</button>
+    </div>
+    </form>
+</div>
+{{else}}
+<p>You are not the owner of this post:</p>
+          <a href="/dashboard">back to your dashboard</a>
+{{/if}}          
+
+<script src="/js/editComment.js"></script>        
