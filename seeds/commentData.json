@@ -1,11 +1,36 @@
 [
-    {
-      "user_comment": "Music Near Me"
-    },
-    {
-      "user_comment": "The Ultimate Tech Quiz"
-    },
-    {
-      "user_comment": "Roll 'Em Up"
-    }
-  ]
+  {
+    "user_comment": "This is a great article, it provides a good overview of the current state of AI and what we can expect in the future. I especially liked the discussion about the ethical implications of AI."
+  },
+  {
+    "user_comment": "I disagree with your assertion that AI will have a significant impact on healthcare. I think there are still many challenges to overcome before AI can be effectively used in medicine."
+  },
+  {
+    "user_comment": "I found this article to be a great introduction to 5G technology. It clearly explains the benefits and potential concerns. I'm excited to see how 5G will change our world."
+  },
+
+  {
+    "user_comment": "I think it's important to also consider the potential impact of 5G on our environment. With more data transmission comes more energy consumption, and we need to think about the long-term sustainability of this technology."
+  },
+  {
+    "user_comment": "This is a very informative article, it helped me to understand the concept of Edge computing better. I think this technology has a lot of potential to improve the performance of systems."
+  },
+  
+  {
+    "user_comment": "I disagree with your assertion that edge computing is particularly relevant for manufacturing, transportation, and healthcare. I think this technology has a lot of potential in other industries as well."
+  },
+  {
+    "user_comment": "This is a great article, it gives a clear explanation of what Blockchain technology is and how it can be used. I'm excited to see more and more use cases for blockchain in the future."
+  },
+
+  {
+    "user_comment": "I think it's important to also consider the potential negative aspects of blockchain technology, such as its association with illegal activities and the environmental impact of cryptocurrency mining."
+  },
+  {
+    "user_comment": "This is a very informative article, it highlights the importance of cybersecurity and the constantly evolving nature of the threat landscape. I think it's important for everyone to stay informed and take steps to protect themselves."
+  },
+
+  {
+    "user_comment": "I disagree with your assertion that a comprehensive approach to cybersecurity includes both technical measures and awareness training. I think that a purely technical approach is sufficient."
+  }
+]

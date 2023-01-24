@@ -28,15 +28,17 @@ const updatePostHandler = async (event) => {
   }
   
   const delButtonHandler = async (event) => {
+    event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
       console.log(id);
       const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
-  
+  console.log(response.status)
       if (response.ok) {
-        document.location.replace('../dashboard');
+        console.log('all good -its worked')
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to delete project');
       }

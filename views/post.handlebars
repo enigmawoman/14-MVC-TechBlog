@@ -16,25 +16,25 @@
           </div>
           <div>
           {{else}}
-          <p>You must be logged in to comment:</p>
-          <a href="/login">login</a>
+          <p>You must be logged in to comment: <a href="/login">login</a></p>
           {{/if}}
           </div>
     </form>
 
-
-    <h3>Comments</h3>
+<br>
+<h3>Comments</h3>
   <br>
     {{#each comments as |comment| }}
     {{#if isCommentOwner}}
     <a href="/comment/{{comment.id}}/edit">
     <div class="row mb-4 project">
     <p id="user-comment">{{comment.user_comment}} &nbsp</p>
+    </a>
     <br>
     <p> Posted by: {{comment.user.name}} &nbsp</p>
     <br>
-    <p>Comment created:{{format_date comment.createdAt}} &nbsp </p>
-    </a>
+    <p>Comment created: {{format_date comment.createdAt}} &nbsp </p>
+    
   </div>
     {{else}}
   <div class="row mb-4 project">
@@ -42,7 +42,7 @@
     <br>
     <p> Posted by: {{comment.user.name}} &nbsp</p>
     <br>
-    <p>Comment created:{{format_date comment.createdAt}} &nbsp </p>
+    <p>Comment created: {{format_date comment.createdAt}} &nbsp </p>
   </div>
   {{/if}}
   {{/each}}
