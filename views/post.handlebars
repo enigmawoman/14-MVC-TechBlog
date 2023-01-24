@@ -24,14 +24,27 @@
 
 
     <h3>Comments</h3>
+  <br>
     {{#each comments as |comment| }}
-  <div class="row mb-4 project">
-    <p>{{comment.user_comment}} &nbsp</p>
+    {{#if isCommentOwner}}
+    <a href="/comment/{{comment.id}}/edit">
+    <div class="row mb-4 project">
+    <p id="user-comment">{{comment.user_comment}} &nbsp</p>
     <br>
     <p> Posted by: {{comment.user.name}} &nbsp</p>
     <br>
-    <p>{{format_date comment.createdAt}} &nbsp </p>
+    <p>Comment created:{{format_date comment.createdAt}} &nbsp </p>
+    </a>
   </div>
+    {{else}}
+  <div class="row mb-4 project">
+    <p id="user-comment">{{comment.user_comment}} &nbsp</p>
+    <br>
+    <p> Posted by: {{comment.user.name}} &nbsp</p>
+    <br>
+    <p>Comment created:{{format_date comment.createdAt}} &nbsp </p>
+  </div>
+  {{/if}}
   {{/each}}
   </div>
 

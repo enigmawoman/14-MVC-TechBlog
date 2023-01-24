@@ -43,11 +43,16 @@ router.get('/post/:id', async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
-    console.log(post);
+    const comments = post.comments.map((comment) => {
+      return { ...comment, isCommentOwner: comment.user_id == req.session.user_id };
+    });
+    post.comments = comments;
+    console.log(post.comments);
 
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      isOwner: req.session.user_id === post.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -76,6 +81,29 @@ router.get('/post/:id/edit', withAuth, async (req, res) => {
       ...post,
       logged_in: req.session.logged_in,
       isOwner: req.session.user_id === post.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/comment/:id/edit', withAuth, async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+       include: [
+       { model: User,
+       attributes: { exclude: ['password']}},
+       {model: Post},
+       ],
+    });
+
+    const comment = commentData.get({ plain: true });
+    console.log(comment);
+
+    res.render('edit-comment', {
+      ...comment,
+      logged_in: req.session.logged_in,
+      isOwner: req.session.user_id === comment.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
