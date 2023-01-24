@@ -29,7 +29,7 @@
       <h3>Your Posts:</h3>
 
       {{#each posts as |post|}}
-      <div class="row mb-2">
+      <div class="row mb-2 post-box">
         <div class="col-md-8">
           <h4><a href="/post/{{post.id}}/edit">{{post.post_title}}</a></h4>
           <p>Created on: {{format_date date_created}}</p>

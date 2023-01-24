@@ -1,10 +1,33 @@
-# 14 Model-View-Controller (MVC): Tech Blog
+# The Tech Blog
 
-## Your Task
+Full Stack Build | delvelopment and deployment of a tech blog
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
+---
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+**Table of Contents:**
+
+* [Description](#description)
+* [User Story](#user-story)
+* [Acceptance Criteria](#acceptance-criteria)
+* [Installation](#installation)
+* [Testing](#testing)
+* [Using the code](#using-the-code)
+* [Tech Blog Deployment](#the-tech-blog-deployment)
+    * [Screenshot of deployed application](#screenshot-of-the-deployed-application)
+    * [Link to deployed application](#link-to-deployed-application)
+* [Usage](#usage)
+* [License](#license) 
+* [Questions](#questions)
+
+---
+
+## Description
+
+We wanted to build a full stack application that allows users to search for technology based blog posts.
+
+Using node.js and express JS to create a RESTful API, Sequelize and MySQL to manage the databases and sensitive user data, such as password encryption and session cookies, npm package manager and handlebars for HTML rendering.
+
+
 
 ## User Story
 
@@ -52,81 +75,72 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
 
-## Mock-Up
+Challenges in this project: I had some challenges with the model associations, but with some online research and furhter reading i was able to figure them out.
+I am pleased with how the controller routes turned out and how i have implemented the MVC paradigm. 
 
-The following animation demonstrates the application functionality:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+## Installation
 
-## Getting Started
+Start by downloading the code from the repository, then load in VS code, open a terminal and make sure you are in the project folder.
+Initialise the code by typing into the terminal:
+```bash
+npm i
 
-Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views, use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+add your sql credentials the .envEXAMPLE file and rename the file to .env
+```
 
-You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables, the [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords, and the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+## Using the code
 
-**Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
+To initialise the database you will need to run the following commands in the terminal to seed the database and run up the program:
 
-## Grading Requirements
+- Login to mySQL and initialise the database
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+```bash
+mysql -u root -p
+source db/schema.sql
+quit;
+```
+- Then seed the database
+```bash
+npm run seed
+```
 
-This Challenge is graded based on the following criteria:
+- To get the database and site running locally you will need to enter into the terminal:
+```bash
+npm run start
+```
+go to your web browser and enter, 
 
-### Technical Acceptance Criteria: 40%
+```http://localhost:3001``` 
 
-* Satisfies all of the preceding acceptance criteria plus the following:
+the site should be running and you will able to interact with the database via the front end.
 
-    * Application’s folder structure follows the Model-View-Controller paradigm.
+Once you have finished using the site and database, be sure to run *(ctrl+C)* or *(^C)* to close down the session.
 
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
+The code files are fully commented, to explain the flow and logic of the code, so that others can work on this and expand on it too.
 
-    * Application must be deployed to Heroku.
 
-### Deployment: 32%
+## The Tech Blog deployment
 
-* Application deployed at live URL.
+### Screenshot of the deployed application.
 
-* Application loads with no errors.
+![Screenshot of deployed site](./assets/images/localhost_3001_%20(2).png)
 
-* Application GitHub URL submitted.
+### Link to deployed application.
 
-* GitHub repository contains application code.
+<a href=""><b>Link to the deployed tech blog</b></a>
 
-### Application Quality: 15%
 
-* User experience is intuitive and easy to navigate.
+## Usage
 
-* User interface style is clean and polished.
+This code can be used as an example of how to build a full stack application using the technologies layed out in the description, if you have any questions or suggestions, please let  know using the links in the [questions](#questions) section of this README.
 
-* Application resembles the mock-up functionality provided in the Challenge instructions.
+## License
 
-### Repository Quality: 13%
+NA
 
-* Repository has a unique name.
+## Questions
 
-* Repository follows best practices for file structure and naming conventions.
+If you have any questions, reach out [@enigmawoman](https://github.com/enigmawoman)</br>
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
 
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.

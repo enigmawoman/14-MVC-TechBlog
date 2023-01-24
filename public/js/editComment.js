@@ -1,6 +1,5 @@
 const updateCommentHandler = async (event) => {
-    // const postNameUpdate = document.querySelector('#post-name-update').value.trim();
-    // const descriptionUpdate = document.querySelector('#post-desc-update').value.trim();
+   
     event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
@@ -27,6 +26,7 @@ const updateCommentHandler = async (event) => {
   }
   
   const delButtonHandler = async (event) => {
+    event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
       console.log(id);
@@ -35,7 +35,7 @@ const updateCommentHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to delete project');
       }
