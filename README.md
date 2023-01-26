@@ -1,6 +1,6 @@
 # The Tech Blog
 
-Full Stack Build | delvelopment and deployment of a tech blog
+Full Stack Build | development and deployment of a tech blog
 
 ---
 
@@ -124,7 +124,7 @@ The code files are fully commented, to explain the flow and logic of the code, s
 
 ### Screenshot of the deployed application.
 
-![Screenshot of deployed site](./assets/images/localhost_3001_%20(2).png)
+![Screenshot of deployed site](./assets/images/localhost_3001.png)
 
 ### Link to deployed application.
 

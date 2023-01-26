@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// find all posts
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -26,7 +27,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// find posts by id
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -43,6 +44,8 @@ router.get('/post/:id', async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
+
+    // find the comment data and maps it, so that we can compare the session user_id to the comment_user_id, so only the creator of the comment can edit and delete it
     const comments = post.comments.map((comment) => {
       return { ...comment, isCommentOwner: comment.user_id == req.session.user_id };
     });
@@ -58,7 +61,7 @@ router.get('/post/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//finds the post by id - page where the edit routes will be engaged
 router.get('/post/:id/edit', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -86,7 +89,7 @@ router.get('/post/:id/edit', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//finds the comment by id - page where the edit routes will be engaged
 router.get('/comment/:id/edit', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id, {

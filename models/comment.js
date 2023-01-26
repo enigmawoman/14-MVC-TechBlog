@@ -2,10 +2,10 @@ const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
-// Initialize Product model (table) by extending off Sequelize's Model class
+// Initialize comment model (table) by extending off Sequelize's Model class
 class Comment extends Model {}
 
-// set up fields and rules for Product model
+// set up fields and rules for comment model
 Comment.init(
   {
     id: {
@@ -25,13 +25,7 @@ Comment.init(
         key: 'id',
       }
     },
-    //  post_id: {
-    //    type: DataTypes.INTEGER,
-    //    references: {
-    //      model: 'post',
-    //      key: 'id',
-    //    }
-    //  },
+   
   },
   {
     sequelize,

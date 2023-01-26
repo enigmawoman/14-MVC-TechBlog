@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// create a comment and require user logged in(withAuth)
 router.post('/', withAuth, async (req, res) => {
     try {
       const newComment = await Comment.create({
@@ -14,7 +15,7 @@ router.post('/', withAuth, async (req, res) => {
       res.status(400).json(err);
     }
   });
-
+// update a comment and require user logged in(withAuth)
   router.put('/:id', withAuth, async (req, res) => {
     try {
   
@@ -41,7 +42,7 @@ router.post('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
+  // delete a comment and require user logged in(withAuth)
   router.delete("/:id", withAuth, async (req, res) => {
 
     console.log(req.params.id)
