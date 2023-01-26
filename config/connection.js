@@ -1,4 +1,8 @@
+//this is the sequelise connection settings
+
+// require sequelise
 const Sequelize = require('sequelize');
+//require an environment variable file to hold the login credentials for mySQL
 require('dotenv').config();
 
 let sequelize;

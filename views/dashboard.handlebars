@@ -1,6 +1,7 @@
 
   <div class="row">
     <div class="col-auto">
+      {{!-- pulling in name of the logged in user --}}
       <h2>Welcome, {{name}}!</h2>
     </div>
   </div>
@@ -23,7 +24,7 @@
         </div>
       </form>
     </div>
-
+{{!-- for each post add in the post title, date created and date updated --}}
      {{#if posts.length}} 
     <div class="col-md-6 project-list">
       <h3>Your Posts:</h3>
@@ -40,5 +41,5 @@
     </div>
     {{/if}}
   </div>
-
+{{!-- use the profile.js front end script --}}
 <script src="./js/profile.js"></script>

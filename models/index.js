@@ -1,7 +1,8 @@
+//require the models
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
-
+//model associations
 User.hasMany(Post, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
