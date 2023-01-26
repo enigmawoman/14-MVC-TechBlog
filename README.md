@@ -128,7 +128,7 @@ The code files are fully commented, to explain the flow and logic of the code, s
 
 ### Link to deployed application.
 
-<a href=""><b>Link to the deployed tech blog</b></a>
+<a href="https://protected-hollows-97045.herokuapp.com/"><b>Link to the deployed tech blog</b></a>
 
 
 ## Usage
